@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Zero_Refresh_Example' do
+  pod 'Zero_Refresh', :path => '../'
+
+  target 'Zero_Refresh_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
