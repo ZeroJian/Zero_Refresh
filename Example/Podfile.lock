@@ -1,0 +1,23 @@
+PODS:
+  - MJRefresh (3.1.15.7)
+  - Zero_Refresh (0.1.0):
+    - MJRefresh
+
+DEPENDENCIES:
+  - Zero_Refresh (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MJRefresh
+
+EXTERNAL SOURCES:
+  Zero_Refresh:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Zero_Refresh: 725d985bcb5b1425c66820b08f90371f51fd54a0
+
+PODFILE CHECKSUM: afa6fd9ad08f57d184c4ac6c485f8ea21e6855b6
+
+COCOAPODS: 1.6.1

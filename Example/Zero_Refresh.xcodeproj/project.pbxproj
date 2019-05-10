@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320C86D022850B0B006B841F /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C86CF22850B0B006B841F /* TestListViewController.swift */; };
 		5170ADE14A05FE7E809E08C2 /* Pods_Zero_Refresh_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8201DBF690BD39EB30A18F9 /* Pods_Zero_Refresh_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -28,8 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A0479DC11EAB438FBFC638 /* Zero_Refresh.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Zero_Refresh.podspec; path = ../Zero_Refresh.podspec; sourceTree = "<group>"; };
+		00A0479DC11EAB438FBFC638 /* Zero_Refresh.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Zero_Refresh.podspec; path = ../Zero_Refresh.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1CE30D9FE28AB6C8DB24C109 /* Pods-Zero_Refresh_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Tests.release.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Tests/Pods-Zero_Refresh_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		320C86CF22850B0B006B841F /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		4C156BA08F4029B67F9556C5 /* Pods-Zero_Refresh_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Tests/Pods-Zero_Refresh_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Zero_Refresh_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zero_Refresh_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,10 +44,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		AE4063AAA250E8F655173965 /* Pods_Zero_Refresh_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zero_Refresh_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFFEF44BA954B439CEF512BE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AFFEF44BA954B439CEF512BE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B2B31A52FD0194E0798DD23B /* Pods-Zero_Refresh_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Example.release.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Example/Pods-Zero_Refresh_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D8E607388C0C3C982C8D51F8 /* Pods-Zero_Refresh_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Example.debug.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Example/Pods-Zero_Refresh_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E191816070ECD8EECE9F56D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E191816070ECD8EECE9F56D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E8201DBF690BD39EB30A18F9 /* Pods_Zero_Refresh_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zero_Refresh_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,7 +79,6 @@
 				4C156BA08F4029B67F9556C5 /* Pods-Zero_Refresh_Tests.debug.xcconfig */,
 				1CE30D9FE28AB6C8DB24C109 /* Pods-Zero_Refresh_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +108,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				320C86CF22850B0B006B841F /* TestListViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -227,6 +229,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -293,12 +296,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Zero_Refresh_Example/Pods-Zero_Refresh_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Zero_Refresh/Zero_Refresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zero_Refresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +342,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				320C86D022850B0B006B841F /* TestListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -503,7 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
