@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import RefreshInterpreter
 
-extension RefreshManager {
+extension RefreshInterpreter {
 	
 	
 	/// 显示数据为空 lable 和 imageView
@@ -18,13 +19,12 @@ extension RefreshManager {
 	///   - imageName:  图片名称
 	///   - imageRatio: 图片宽度相对 RefreshView 宽度比例
 	public func makeEmptyView(lableText: String, imageName: String? = nil, imageRatio: CGFloat = 0.5 ) {
-		let emptyView = self.emptyAppearance as? EmptyRefreshView ?? EmptyRefreshView(toView: self.refreshView)
-		_ = emptyView.showLabel(text: lableText, textColor: self.indicatorStyleColor)
+		let emptyView = EmptyRefreshView(toView: self.refreshView)
+        _ = emptyView.showLabel(text: lableText, textColor: .lightGray)
 		if let imageName = imageName {
 			_ = emptyView.showImage(name: imageName, ratio: imageRatio)
 		}
-//		empty-order
-		makeAppearance(emptyAppearance: emptyView)
+        addStatusPlug(plug: emptyView)
 	}
 	
 	
@@ -32,12 +32,13 @@ extension RefreshManager {
 	///
 	/// - Parameter button: 传入的 button
 	public func makeEmptyButton(button: UIButton) {
-		let emptyView = self.emptyAppearance as? EmptyRefreshView ?? EmptyRefreshView(toView: self.refreshView)
+		let emptyView = EmptyRefreshView(toView: self.refreshView)
 		_ = emptyView.addButton(button: button)
+        addStatusPlug(plug: emptyView)
 	}
 }
 
-/// 遵循 EmptyDataAppearance 协议的刷新 View
+/// 遵循 RefreshStatusPlug 协议的刷新 View
 public class EmptyRefreshView {
 	
 	fileprivate var refreshView: UIView
@@ -75,26 +76,38 @@ extension EmptyRefreshView {
 		}
 		
 		let toView: UIView = refreshView
+        button.center.x = toView.center.x
+        button.center.y = toView.center.y
+        
+        if button.bounds.size == .zero {
+            button.bounds.size.height = 35
+            button.bounds.size.width = 100
+        }
+        
 		toView.addSubview(button)
-//        button.snp.makeConstraints({ (maker) in
-//            maker.height.equalTo(35)
-//            maker.centerX.equalToSuperview()
-//            maker.centerY.equalToSuperview().offset(67)
-//            maker.width.equalTo(100)
-//        })
 		button.isHidden = true
 		emptyButton = button
 		return self
 	}
 }
 
-extension EmptyRefreshView: EmptyDataAppearance {
+extension EmptyRefreshView: RefreshStatusPlug {
+    
+    public func appearanceStatus<R>(_ refresh: RefreshInterpreter<R>, status: RefreshStatus) -> Bool {
+        switch status {
+        case .loading, .failure(_, _):
+            emptyLable?.isHidden = true
+            emptyImageView?.isHidden = true
+            emptyButton?.isHidden = true
 
-	public func showEmptyAppearance(isHidden: Bool) {
-		emptyLable?.isHidden = isHidden
-		emptyImageView?.isHidden = isHidden
-		emptyButton?.isHidden = isHidden
-	}
+        case .finished:
+            emptyLable?.isHidden = !refresh.dataSource.isEmpty
+            emptyImageView?.isHidden = !refresh.dataSource.isEmpty
+            emptyButton?.isHidden = !refresh.dataSource.isEmpty
+        }
+        
+        return true
+    }
 }
 
 
@@ -117,17 +130,16 @@ extension EmptyRefreshView {
 		label.textColor = textColor
 		label.textAlignment = .center
 		label.font = UIFont.systemFont(ofSize: 14)
-		
-		let toView: UIView = refreshView
-		toView.addSubview(label)
-		
-		let height = label.sizeThatFits(CGSize.init(width: 300, height: 30))
-//        label.snp.makeConstraints({ (make) in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview().offset(14)
-//            make.height.equalTo(height)
-//            make.width.equalToSuperview()
-//        })
+        let toView: UIView = refreshView
+        
+        let size = label.sizeThatFits(CGSize(width: toView.bounds.width - 30, height: 1000))
+        
+        label.center.x = toView.center.x
+        label.center.y = toView.center.y
+        label.bounds.size.width = toView.bounds.width - 30
+        label.bounds.size.height = size.height
+        toView.addSubview(label)
+        
 		
 		label.isHidden = true
 		emptyLable = label
@@ -145,15 +157,13 @@ extension EmptyRefreshView {
 		imageView.image = UIImage(named: imageName)
 		
 		let toView: UIView = refreshView
+        
+        imageView.center.x = toView.center.x
+        imageView.center.y = toView.center.y + (-imageHeight / 2 - 10)
+        imageView.bounds.size.width = imageHeight
+        imageView.bounds.size.height = imageHeight
 		toView.addSubview(imageView)
-		
-//        imageView.snp.makeConstraints({ (make) in
-//            make.centerX.equalToSuperview()
-//            make.width.equalToSuperview().multipliedBy(self.emptyImageViewRatio)
-//            make.height.equalTo(toView.snp.width).multipliedBy(self.emptyImageViewRatio)
-//            make.centerY.equalToSuperview().offset(-imageHeight / 2 + 10)
-//        })
-		
+				
 		imageView.isHidden = true
 		emptyImageView = imageView
 	}

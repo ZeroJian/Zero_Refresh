@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		320C86D022850B0B006B841F /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C86CF22850B0B006B841F /* TestListViewController.swift */; };
+		320C86D422854ABA006B841F /* Refresh+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C86D322854ABA006B841F /* Refresh+init.swift */; };
+		323CC711228570EF00E0B32D /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CC710228570EF00E0B32D /* NetworkStatusView.swift */; };
+		323CC713228570FC00E0B32D /* SpinnerRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CC712228570FB00E0B32D /* SpinnerRefreshView.swift */; };
+		323CC71C228571A400E0B32D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CC71B228571A400E0B32D /* SpinnerView.swift */; };
 		5170ADE14A05FE7E809E08C2 /* Pods_Zero_Refresh_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8201DBF690BD39EB30A18F9 /* Pods_Zero_Refresh_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -32,6 +36,10 @@
 		00A0479DC11EAB438FBFC638 /* Zero_Refresh.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Zero_Refresh.podspec; path = ../Zero_Refresh.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1CE30D9FE28AB6C8DB24C109 /* Pods-Zero_Refresh_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Tests.release.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Tests/Pods-Zero_Refresh_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		320C86CF22850B0B006B841F /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
+		320C86D322854ABA006B841F /* Refresh+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh+init.swift"; sourceTree = "<group>"; };
+		323CC710228570EF00E0B32D /* NetworkStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
+		323CC712228570FB00E0B32D /* SpinnerRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerRefreshView.swift; sourceTree = "<group>"; };
+		323CC71B228571A400E0B32D /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		4C156BA08F4029B67F9556C5 /* Pods-Zero_Refresh_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zero_Refresh_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Zero_Refresh_Tests/Pods-Zero_Refresh_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Zero_Refresh_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zero_Refresh_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,9 +114,13 @@
 		607FACD21AFB9204008FA782 /* Example for Zero_Refresh */ = {
 			isa = PBXGroup;
 			children = (
+				323CC71B228571A400E0B32D /* SpinnerView.swift */,
+				323CC712228570FB00E0B32D /* SpinnerRefreshView.swift */,
+				323CC710228570EF00E0B32D /* NetworkStatusView.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				320C86CF22850B0B006B841F /* TestListViewController.swift */,
+				320C86D322854ABA006B841F /* Refresh+init.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -297,6 +309,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Zero_Refresh_Example/Pods-Zero_Refresh_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/RefreshInterpreter/RefreshInterpreter.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zero_Refresh/Zero_Refresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -304,6 +318,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RefreshInterpreter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zero_Refresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,9 +356,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323CC713228570FC00E0B32D /* SpinnerRefreshView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				323CC711228570EF00E0B32D /* NetworkStatusView.swift in Sources */,
 				320C86D022850B0B006B841F /* TestListViewController.swift in Sources */,
+				320C86D422854ABA006B841F /* Refresh+init.swift in Sources */,
+				323CC71C228571A400E0B32D /* SpinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

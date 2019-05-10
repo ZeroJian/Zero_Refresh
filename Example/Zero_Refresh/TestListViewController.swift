@@ -21,8 +21,8 @@ class TestListViewController: UIViewController {
     let tableView = UITableView()
     
     lazy var refresh: Refresh<Person> = {
-        let manager = Refresh<Person>.init(refreshView: self.tableView)
-        return manager
+        let r = Refresh<Person>.init(refreshView: self.tableView)
+        return r
     }()
     
     var serverData: [Person] = []
@@ -34,9 +34,12 @@ class TestListViewController: UIViewController {
         tableView.frame = view.bounds
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         
         let barButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(refreshBarButtonAction))
         navigationItem.rightBarButtonItem = barButton
+        
+        
         
         // init server data
         for i in  0..<46 {
@@ -49,7 +52,7 @@ class TestListViewController: UIViewController {
     }
     
     func requestDataSource() {
-        
+                
         refresh.requestHandle { [weak self](pageIndex, result) in
             
             print("\n ------ Current Page: \(pageIndex) ")
@@ -64,9 +67,14 @@ class TestListViewController: UIViewController {
             })
         }
         
-        refresh.noMoreDataText = "侧侧鹅鹅鹅饿饿"
-        
         refresh.makeEmptyView(lableText: "暂时没有数据哦~~", imageName: "empty-datasource")
+//        let button = UIButton()
+//        button.backgroundColor = .blue
+//        button.setTitleColor(.white, for: .normal)
+//        button.setTitle("重试请求", for: .normal)
+//        refresh.makeEmptyButton(button: button)
+        
+//        refresh.showFirstSpinnerView(inView: view)
         
         refresh.configRefresh(beginPage: 1, pageSize: 20)
         
@@ -89,9 +97,14 @@ class TestListViewController: UIViewController {
         }
     }
     
-    /// 模拟获取w服务器数据
+    /// 模拟获取服务器数据
     /// return 总行数 和 当前 page 返回的数据
     func getSeverData(page: Int, pageSize: Int) -> (totalCount: Int, data: [Person]) {
+        
+        if serverData.isEmpty {
+            return (0, [])
+        }
+        
         /// 假设服务器第一页 page = 1
         let first = (page - 1) * pageSize
         var last: Int
@@ -115,12 +128,12 @@ class TestListViewController: UIViewController {
 extension TestListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return refresh.dataArray.count
+        return refresh.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ?? UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
-        let item = refresh.dataArray[indexPath.row]
+        let item = refresh.dataSource[indexPath.row]
         cell.textLabel?.text = "Name: \(item.name),  age: \(item.age)"
         return cell
     }

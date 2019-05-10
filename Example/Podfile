@@ -2,6 +2,9 @@ use_frameworks!
 
 target 'Zero_Refresh_Example' do
   pod 'Zero_Refresh', :path => '../'
+  pod 'RefreshInterpreter', :path => '~/Code/Framework/RefreshInterpreter'
+  
+  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :tag => '4.2.0'
 
   target 'Zero_Refresh_Tests' do
     inherit! :search_paths
