@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import RefreshInterpreter
+//import RefreshInterpreter
 
 
-public class Refresh<ModelType>: RefreshInterpreter<ModelType> {
+public class ZJRefresh<ModelType>: RefreshInterpreter<ModelType> {
     
     public init(refreshView: UIScrollView) {
         super.init(refreshView: refreshView, bridge: MJRefreshBridge())

@@ -7,7 +7,7 @@
 
 import Foundation
 import MJRefresh
-import RefreshInterpreter
+//import RefreshInterpreter
 
 public class MJRefreshBridge: BridgePort {
     

@@ -1,23 +1,24 @@
 PODS:
-  - MJRefresh (3.1.15.7)
-  - RefreshInterpreter (0.1.0)
+  - MJRefresh (3.2.0)
   - SnapKit (4.2.0)
-  - Zero_Refresh (0.1.0):
+  - Zero_Refresh/BridgeMJRefresh (0.1.0):
     - MJRefresh
-    - RefreshInterpreter
+    - Zero_Refresh/Core
+  - Zero_Refresh/Core (0.1.0)
+  - Zero_Refresh/ExEmptyView (0.1.0):
+    - Zero_Refresh/Core
 
 DEPENDENCIES:
-  - RefreshInterpreter (from `~/Code/Framework/RefreshInterpreter`)
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, tag `4.2.0`)
-  - Zero_Refresh (from `../`)
+  - Zero_Refresh/BridgeMJRefresh (from `../`)
+  - Zero_Refresh/Core (from `../`)
+  - Zero_Refresh/ExEmptyView (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MJRefresh
 
 EXTERNAL SOURCES:
-  RefreshInterpreter:
-    :path: "~/Code/Framework/RefreshInterpreter"
   SnapKit:
     :git: https://github.com/SnapKit/SnapKit.git
     :tag: 4.2.0
@@ -30,11 +31,10 @@ CHECKOUT OPTIONS:
     :tag: 4.2.0
 
 SPEC CHECKSUMS:
-  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  RefreshInterpreter: d3314b337cdfafb7dacebb71ec98e340dd4ec8d7
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  Zero_Refresh: 422393c65d08c673d2e65e31e0fa1ee95903d961
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  SnapKit: 77e8f61982be3de35316498ef730d44b1614b3c7
+  Zero_Refresh: 80003b77a815171fd0ea28a6a3453aaba774adf1
 
-PODFILE CHECKSUM: e3fad04241a4e1ed0e617d334d7ecba9db270de6
+PODFILE CHECKSUM: 259d7122a5db9aa20307cefa217292522818fe89
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.1

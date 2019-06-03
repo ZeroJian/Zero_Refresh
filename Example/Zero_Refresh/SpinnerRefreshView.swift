@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RefreshInterpreter
+import Zero_Refresh
 
 extension RefreshInterpreter {
     

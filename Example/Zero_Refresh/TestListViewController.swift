@@ -20,8 +20,8 @@ class TestListViewController: UIViewController {
     
     let tableView = UITableView()
     
-    lazy var refresh: Refresh<Person> = {
-        let r = Refresh<Person>.init(refreshView: self.tableView)
+    lazy var refresh: ZJRefresh<Person> = {
+        let r = ZJRefresh<Person>.init(refreshView: self.tableView)
         return r
     }()
     
